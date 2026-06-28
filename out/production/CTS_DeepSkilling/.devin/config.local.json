@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Exec(ls)",
+      "Exec(dir)",
+      "Exec(Get-ChildItem)",
+      "Exec(cd)",
+      "Exec(javac)",
+      "Exec(java)",
+      "Exec(mvn clean)"
+    ]
+  }
+}

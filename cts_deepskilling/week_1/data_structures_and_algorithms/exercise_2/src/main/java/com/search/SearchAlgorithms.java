@@ -1,5 +1,8 @@
 package com.search;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Linear Search  - O(n) time complexity
  * Binary Search  - O(log n) time complexity (requires sorted array by productId)
@@ -58,6 +61,8 @@ public class SearchAlgorithms {
 
         // Binary search (array must be sorted by productId)
         System.out.println("\n=== Binary Search ===");
+        // Sort array by productId for binary search
+        Arrays.sort(products, Comparator.comparingInt(Product::getProductId));
         Product result2 = binarySearch(products, 5);
         System.out.println(result2 != null ? "Found: " + result2 : "Not found");
     }

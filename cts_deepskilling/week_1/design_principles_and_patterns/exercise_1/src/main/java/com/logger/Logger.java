@@ -8,7 +8,7 @@ public class Logger {
         // private constructor prevents external instantiation
     }
 
-    public static Logger getInstance() {
+    public static synchronized Logger getInstance() {
         if (instance == null) {
             instance = new Logger();
         }
@@ -16,6 +16,9 @@ public class Logger {
     }
 
     public void log(String message) {
+        if (message == null) {
+            message = "null";
+        }
         System.out.println("[LOG] " + message);
     }
 }
