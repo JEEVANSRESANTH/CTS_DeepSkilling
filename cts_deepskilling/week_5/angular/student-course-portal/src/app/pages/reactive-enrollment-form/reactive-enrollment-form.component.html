@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>Enrollment Request (Reactive Form)</h2>
+
+  <!-- HO-5 Task 1: [formGroup] binds the reactive form -->
+  <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="card" style="max-width:500px; margin-top:1rem">
+
+    <!-- Student Name -->
+    <div style="margin-bottom:1rem">
+      <label>Student Name *</label>
+      <input type="text" formControlName="studentName"
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+      <span class="error-msg" *ngIf="enrollForm.get('studentName')?.touched && enrollForm.get('studentName')?.errors?.['required']">
+        Name is required.
+      </span>
+      <span class="error-msg" *ngIf="enrollForm.get('studentName')?.touched && enrollForm.get('studentName')?.errors?.['minlength']">
+        Name must be at least 3 characters.
+      </span>
+    </div>
+
+    <!-- Student Email (async validator) -->
+    <div style="margin-bottom:1rem">
+      <label>Student Email *</label>
+      <input type="email" formControlName="studentEmail"
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+      <span class="error-msg" *ngIf="enrollForm.get('studentEmail')?.touched && enrollForm.get('studentEmail')?.errors?.['required']">
+        Email is required.
+      </span>
+      <span class="error-msg" *ngIf="enrollForm.get('studentEmail')?.touched && enrollForm.get('studentEmail')?.errors?.['email']">
+        Enter a valid email.
+      </span>
+      <!-- HO-5 Task 2: Async validator error (fires after 800ms) -->
+      <span class="error-msg" *ngIf="enrollForm.get('studentEmail')?.errors?.['emailTaken']">
+        This email is already taken.
+      </span>
+    </div>
+
+    <!-- Course ID (custom sync validator) -->
+    <div style="margin-bottom:1rem">
+      <label>Course Code *</label>
+      <input type="text" formControlName="courseId"
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+      <!-- HO-5 Task 2: Custom validator error message -->
+      <span class="error-msg" *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']">
+        Course codes starting with 'XX' are not allowed.
+      </span>
+    </div>
+
+    <!-- Preferred Semester -->
+    <div style="margin-bottom:1rem">
+      <label>Preferred Semester *</label>
+      <select formControlName="preferredSemester"
+              style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </div>
+
+    <!-- Agree to Terms -->
+    <div style="margin-bottom:1rem">
+      <label>
+        <input type="checkbox" formControlName="agreeToTerms">
+        I agree to the Terms and Conditions *
+      </label>
+    </div>
+
+    <!-- HO-5 Task 2: Dynamic FormArray for additional courses -->
+    <div style="margin-bottom:1rem">
+      <label style="font-weight:600">Additional Courses</label>
+      <div *ngFor="let ctrl of additionalCourses.controls; let i = index"
+           style="display:flex; gap:0.5rem; margin-top:0.5rem">
+        <input [formControl]="ctrl"
+               style="flex:1; padding:0.5rem; border:1px solid #ccc; border-radius:4px">
+        <button type="button" class="btn-danger" (click)="removeCourse(i)">Remove</button>
+      </div>
+      <button type="button" (click)="addCourse()" style="margin-top:0.5rem; background:#eee">
+        + Add Another Course
+      </button>
+    </div>
+
+    <button type="submit" class="btn-primary" [disabled]="enrollForm.invalid">Submit</button>
+    <div class="success-msg" *ngIf="submitted">✓ Reactive form submitted successfully!</div>
+  </form>
+</div>

@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>Enrollment Request (Template-Driven Form)</h2>
+
+  <!-- HO-4 Task 1: Template reference variable gives access to NgForm -->
+  <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="card" style="max-width:500px; margin-top:1rem">
+
+    <!-- Student Name -->
+    <div style="margin-bottom:1rem">
+      <label>Student Name *</label>
+      <input type="text" name="studentName" [(ngModel)]="studentName"
+             #nameCtrl="ngModel"
+             required minlength="3"
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+      <!-- HO-4 Task 2: touched ensures error shows only after user interaction -->
+      <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['required']">Name is required.</span>
+      <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['minlength']">Name must be at least 3 characters.</span>
+    </div>
+
+    <!-- Student Email -->
+    <div style="margin-bottom:1rem">
+      <label>Student Email *</label>
+      <input type="email" name="studentEmail" [(ngModel)]="studentEmail"
+             #emailCtrl="ngModel"
+             required email
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+      <span class="error-msg" *ngIf="emailCtrl.touched && emailCtrl.errors?.['required']">Email is required.</span>
+      <span class="error-msg" *ngIf="emailCtrl.touched && emailCtrl.errors?.['email']">Enter a valid email address.</span>
+    </div>
+
+    <!-- Course ID -->
+    <div style="margin-bottom:1rem">
+      <label>Course ID *</label>
+      <input type="number" name="courseId" [(ngModel)]="courseId"
+             required
+             style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+    </div>
+
+    <!-- Preferred Semester -->
+    <div style="margin-bottom:1rem">
+      <label>Preferred Semester *</label>
+      <select name="preferredSemester" [(ngModel)]="preferredSemester" required
+              style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
+        <option value="">Select semester</option>
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </div>
+
+    <!-- Agree to Terms -->
+    <div style="margin-bottom:1.5rem">
+      <label>
+        <input type="checkbox" name="agreeToTerms" [(ngModel)]="agreeToTerms" required>
+        I agree to the Terms and Conditions *
+      </label>
+    </div>
+
+    <!-- HO-4 Task 1: Disabled when form is invalid -->
+    <div style="display:flex; gap:0.75rem">
+      <button type="submit" class="btn-primary" [disabled]="enrollForm.invalid">Submit</button>
+      <!-- HO-4 Task 2: Reset clears all fields and validation state -->
+      <button type="button" (click)="enrollForm.resetForm()" style="background:#eee">Reset</button>
+    </div>
+
+    <!-- HO-4 Task 2: Success message after valid submission -->
+    <div class="success-msg" *ngIf="submitted">✓ Enrollment request submitted successfully!</div>
+  </form>
+</div>

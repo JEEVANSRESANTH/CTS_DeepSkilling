@@ -1,0 +1,20 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; }
+nav { background: #1976d2; color: white; padding: 1rem 2rem; display: flex; gap: 2rem; align-items: center; }
+nav a { color: white; text-decoration: none; font-weight: 500; }
+nav a:hover { text-decoration: underline; }
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+.card { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.card:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+button { cursor: pointer; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-size: 1rem; }
+.btn-primary { background: #1976d2; color: white; }
+.btn-danger { background: #d32f2f; color: white; }
+.badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+.badge-passed { background: #e8f5e9; color: #388e3c; }
+.badge-failed { background: #ffebee; color: #d32f2f; }
+.badge-pending { background: #f5f5f5; color: #757575; }
+.ng-invalid.ng-touched { border-color: red !important; }
+.ng-valid.ng-touched { border-color: green !important; }
+.error-msg { color: red; font-size: 0.85rem; margin-top: 0.25rem; }
+.success-msg { color: green; font-size: 0.95rem; margin-top: 1rem; font-weight: 500; }
+.loading { text-align: center; padding: 2rem; color: #999; }
