@@ -11,14 +11,12 @@ public class CalculatorAAATest {
 
     @Before
     public void setUp() {
-        // Arrange - runs before each test
         calculator = new Calculator();
         System.out.println("setUp: Calculator instance created.");
     }
 
     @After
     public void tearDown() {
-        // Cleanup - runs after each test
         calculator = null;
         System.out.println("tearDown: Calculator instance released.");
     }

@@ -1,5 +1,5 @@
 package com.dsa;
-// LinkedList: Add O(1) head, Search O(n), Delete O(n) - better than array for frequent inserts/deletes
+
 public class TaskLinkedList {
     private Task head;
     public void add(Task t)    { 

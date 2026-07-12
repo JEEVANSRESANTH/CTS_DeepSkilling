@@ -6,7 +6,6 @@ import { Course } from '../models/course.model';
 export class EnrollmentService {
   private enrolledCourseIds: number[] = [];
 
-  // HO-6 Task 2: Service-to-service injection
   constructor(private courseService: CourseService) {}
 
   enroll(courseId: number): void {

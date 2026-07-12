@@ -1,6 +1,6 @@
 package com.dsa;
 import java.util.Arrays;
-// BubbleSort O(n^2) | QuickSort O(n log n) avg - QuickSort preferred for large datasets
+
 public class SortingAlgorithms {
     public static void bubbleSort(Order[] orders) {
         int n = orders.length;

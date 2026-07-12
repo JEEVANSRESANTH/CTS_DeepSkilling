@@ -1,9 +1,7 @@
 <div class="container">
-  <!-- HO-2: String interpolation -->
   <h1>{{ portalName }}</h1>
   <p>Welcome to the Student Course Portal. Browse and enroll in available courses.</p>
 
-  <!-- HO-1: Stats row -->
   <div style="display:flex; gap:2rem; margin:1.5rem 0">
     <div class="card" style="text-align:center; min-width:140px">
       <div style="font-size:2rem; font-weight:700; color:#1976d2">{{ coursesCount }}</div>
@@ -19,15 +17,12 @@
     </div>
   </div>
 
-  <!-- HO-2: Property binding + event binding -->
   <button class="btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
   <p *ngIf="message" style="margin-top:0.5rem; color:green">{{ message }}</p>
 
-  <!-- HO-2: Two-way binding with ngModel -->
   <div style="margin-top:1.5rem">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Search courses..."
            style="padding:0.5rem; width:300px; border:1px solid #ccc; border-radius:4px">
-    <!-- [property] = one-way component→DOM | [(ngModel)] = two-way DOM↔component -->
     <p style="margin-top:0.5rem; color:#666">Searching for: {{ searchTerm }}</p>
   </div>
 </div>

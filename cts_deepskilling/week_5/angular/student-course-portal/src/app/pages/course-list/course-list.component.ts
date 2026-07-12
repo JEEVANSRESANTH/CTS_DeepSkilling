@@ -8,7 +8,6 @@ import { CourseCardComponent } from '../../components/course-card/course-card.co
 import { loadCourses } from '../../store/course/course.actions';
 import { selectAllCourses, selectCoursesLoading } from '../../store/course/course.selectors';
 
-// HO-3 Task 1: *ngIf, *ngFor, trackBy | HO-9: NgRx store integration
 @Component({
   selector: 'app-course-list',
   standalone: true,
@@ -16,7 +15,6 @@ import { selectAllCourses, selectCoursesLoading } from '../../store/course/cours
   templateUrl: './course-list.component.html'
 })
 export class CourseListComponent implements OnInit {
-  // HO-9 Task 1: Observable from NgRx store (rendered via async pipe)
   courses$: Observable<Course[]>;
   loading$: Observable<boolean>;
   selectedCourseId: number | null = null;
@@ -27,11 +25,9 @@ export class CourseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // HO-9 Task 1: Dispatch action instead of calling service directly
     this.store.dispatch(loadCourses());
   }
 
-  // HO-3 Task 1: trackBy for performance - avoids re-rendering unchanged items
   trackByCourseId(index: number, course: Course): number {
     return course.id;
   }
@@ -42,7 +38,6 @@ export class CourseListComponent implements OnInit {
   }
 
   onCardClick(courseId: number): void {
-    // HO-7 Task 1: Navigate to course detail
     this.router.navigate(['courses', courseId]);
   }
 }

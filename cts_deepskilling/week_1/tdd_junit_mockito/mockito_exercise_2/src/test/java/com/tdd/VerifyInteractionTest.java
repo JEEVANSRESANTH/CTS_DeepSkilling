@@ -14,7 +14,6 @@ public class VerifyInteractionTest {
         // Act
         service.fetchData();
 
-        // Verify - ensure getData() was called exactly once
         verify(mockApi).getData();
         System.out.println("Verified: getData() was called on the mock.");
     }

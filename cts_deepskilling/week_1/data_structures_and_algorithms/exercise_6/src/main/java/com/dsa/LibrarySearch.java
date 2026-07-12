@@ -1,6 +1,6 @@
 package com.dsa;
 import java.util.Arrays;
-// Linear O(n) - no sort needed | Binary O(log n) - requires sorted array by title
+
 public class LibrarySearch {
     public static Book linearSearch(Book[] books, String title) {
         for (Book b : books) if (b.getTitle().equalsIgnoreCase(title)) return b; return null;

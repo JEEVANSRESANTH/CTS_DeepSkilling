@@ -5,7 +5,6 @@ import { selectAllCourses } from '../course/course.selectors';
 const selectEnrollmentState = createFeatureSelector<EnrollmentState>('enrollment');
 export const selectEnrolledIds = createSelector(selectEnrollmentState, s => s.enrolledCourseIds);
 
-// HO-9 Task 2: Cross-slice selector - combines course + enrollment state
 export const selectEnrolledCourses = createSelector(
   selectAllCourses,
   selectEnrolledIds,

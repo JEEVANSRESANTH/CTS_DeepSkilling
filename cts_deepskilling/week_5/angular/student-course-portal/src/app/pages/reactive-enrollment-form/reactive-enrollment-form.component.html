@@ -1,7 +1,6 @@
 <div class="container">
   <h2>Enrollment Request (Reactive Form)</h2>
 
-  <!-- HO-5 Task 1: [formGroup] binds the reactive form -->
   <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="card" style="max-width:500px; margin-top:1rem">
 
     <!-- Student Name -->
@@ -17,7 +16,7 @@
       </span>
     </div>
 
-    <!-- Student Email (async validator) -->
+    <!-- Student Email -->
     <div style="margin-bottom:1rem">
       <label>Student Email *</label>
       <input type="email" formControlName="studentEmail"
@@ -28,18 +27,16 @@
       <span class="error-msg" *ngIf="enrollForm.get('studentEmail')?.touched && enrollForm.get('studentEmail')?.errors?.['email']">
         Enter a valid email.
       </span>
-      <!-- HO-5 Task 2: Async validator error (fires after 800ms) -->
       <span class="error-msg" *ngIf="enrollForm.get('studentEmail')?.errors?.['emailTaken']">
         This email is already taken.
       </span>
     </div>
 
-    <!-- Course ID (custom sync validator) -->
+    <!-- Course ID -->
     <div style="margin-bottom:1rem">
       <label>Course Code *</label>
       <input type="text" formControlName="courseId"
              style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
-      <!-- HO-5 Task 2: Custom validator error message -->
       <span class="error-msg" *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']">
         Course codes starting with 'XX' are not allowed.
       </span>
@@ -63,7 +60,7 @@
       </label>
     </div>
 
-    <!-- HO-5 Task 2: Dynamic FormArray for additional courses -->
+    <!-- Additional Courses -->
     <div style="margin-bottom:1rem">
       <label style="font-weight:600">Additional Courses</label>
       <div *ngFor="let ctrl of additionalCourses.controls; let i = index"

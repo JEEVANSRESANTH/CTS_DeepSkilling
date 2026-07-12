@@ -3,7 +3,6 @@ import { NgFor, NgIf } from '@angular/common';
 import { EnrollmentService } from '../../services/enrollment.service';
 import { Course } from '../../models/course.model';
 
-// HO-6 Task 2: Displays enrolled courses via EnrollmentService
 @Component({
   selector: 'app-student-profile',
   standalone: true,

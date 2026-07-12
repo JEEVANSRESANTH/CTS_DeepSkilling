@@ -1,16 +1,8 @@
 package com.forecast;
 
 /**
- * Recursive Financial Forecasting
- *
- * Formula: futureValue(n) = presentValue * (1 + growthRate)^n
- *
- * Time Complexity : O(n) — one recursive call per year
- * Space Complexity: O(n) — call stack depth equals n
- *
- * Optimization: Use memoization or convert to iterative to avoid
- * redundant stack frames for large n. For very large n, Math.pow()
- * with an iterative approach is preferred.
+ * Calculates future value using recursion.
+ * Also includes an iterative version for comparison.
  */
 public class FinancialForecasting {
 

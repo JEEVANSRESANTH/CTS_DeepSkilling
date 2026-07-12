@@ -4,7 +4,6 @@ import { NgIf } from '@angular/common';
 import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course.model';
 
-// HO-7 Task 1: Route parameters
 @Component({
   selector: 'app-course-detail',
   standalone: true,
@@ -28,7 +27,6 @@ export class CourseDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private courseService: CourseService) {}
 
   ngOnInit(): void {
-    // HO-7 Task 1: Read :id route parameter
     this.courseId = Number(this.route.snapshot.paramMap.get('id'));
     this.course = this.courseService.getCourseById(this.courseId);
   }

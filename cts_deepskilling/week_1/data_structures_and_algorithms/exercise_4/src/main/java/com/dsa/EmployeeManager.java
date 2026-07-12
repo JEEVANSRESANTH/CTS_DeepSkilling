@@ -1,5 +1,5 @@
 package com.dsa;
-// Array: Add O(1) amortized, Search O(n), Delete O(n) due to shifting
+
 public class EmployeeManager {
     private Employee[] employees;
     private int size = 0;

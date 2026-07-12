@@ -13,7 +13,6 @@ describe('CourseCardComponent', () => {
   let fixture: ComponentFixture<CourseCardComponent>;
 
   beforeEach(async () => {
-    // HO-10 Task 1: Configure TestBed for standalone component
     await TestBed.configureTestingModule({
       imports: [CourseCardComponent, HttpClientTestingModule],
       providers: [EnrollmentService, CourseService]
@@ -23,20 +22,17 @@ describe('CourseCardComponent', () => {
     component = fixture.componentInstance;
   });
 
-  // HO-10 Task 1: Basic smoke test
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  // HO-10 Task 1: @Input rendering test
   it('should display course name from @Input', () => {
     component.course = mockCourse;
-    fixture.detectChanges(); // triggers change detection
+    fixture.detectChanges();
     const heading = fixture.debugElement.query(By.css('h3')).nativeElement;
     expect(heading.textContent).toContain('Data Structures');
   });
 
-  // HO-10 Task 1: @Output EventEmitter test
   it('should emit enrollRequested with course id when Enroll button clicked', () => {
     component.course = mockCourse;
     fixture.detectChanges();
@@ -47,7 +43,6 @@ describe('CourseCardComponent', () => {
     expect(component.enrollRequested.emit).toHaveBeenCalledWith(1);
   });
 
-  // HO-10 Task 1: ngOnChanges test
   it('should log on ngOnChanges when course input changes', () => {
     spyOn(console, 'log');
     component.ngOnChanges({
@@ -56,7 +51,6 @@ describe('CourseCardComponent', () => {
     expect(console.log).toHaveBeenCalled();
   });
 
-  // HO-10 Task 1: Badge renders for passed status
   it('should show Passed badge for passed grade status', () => {
     component.course = mockCourse;
     fixture.detectChanges();

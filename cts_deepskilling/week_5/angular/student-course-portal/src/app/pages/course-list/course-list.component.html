@@ -1,19 +1,15 @@
 <div class="container">
   <h2 style="margin-bottom:1.5rem">Available Courses</h2>
 
-  <!-- HO-3 Task 1: *ngIf loading spinner -->
   <p *ngIf="loading$ | async" class="loading">Loading courses...</p>
 
-  <!-- HO-9: async pipe subscribes/unsubscribes automatically -->
   <ng-container *ngIf="!(loading$ | async)">
     <ng-container *ngIf="(courses$ | async) as courses">
-      <!-- HO-3 Task 1: *ngIf with else block for empty state -->
       <ng-template #noCourses><p>No courses available.</p></ng-template>
 
       <div *ngIf="courses.length > 0; else noCourses"
            style="display:grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap:1rem">
 
-        <!-- HO-3 Task 1: *ngFor with trackBy | HO-2 Task 3: @Input/@Output -->
         <app-course-card
           *ngFor="let course of courses; trackBy: trackByCourseId"
           [course]="course"
@@ -23,7 +19,6 @@
         </app-course-card>
       </div>
 
-      <!-- HO-2 Task 3: selectedCourseId display -->
       <p *ngIf="selectedCourseId" style="margin-top:1rem; color:#1976d2">
         Selected course ID: {{ selectedCourseId }}
       </p>

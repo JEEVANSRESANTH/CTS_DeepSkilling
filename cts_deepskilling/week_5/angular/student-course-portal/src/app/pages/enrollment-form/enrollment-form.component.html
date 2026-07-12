@@ -1,7 +1,6 @@
 <div class="container">
   <h2>Enrollment Request (Template-Driven Form)</h2>
 
-  <!-- HO-4 Task 1: Template reference variable gives access to NgForm -->
   <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="card" style="max-width:500px; margin-top:1rem">
 
     <!-- Student Name -->
@@ -11,7 +10,6 @@
              #nameCtrl="ngModel"
              required minlength="3"
              style="display:block; width:100%; padding:0.5rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:4px">
-      <!-- HO-4 Task 2: touched ensures error shows only after user interaction -->
       <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['required']">Name is required.</span>
       <span class="error-msg" *ngIf="nameCtrl.touched && nameCtrl.errors?.['minlength']">Name must be at least 3 characters.</span>
     </div>
@@ -54,14 +52,11 @@
       </label>
     </div>
 
-    <!-- HO-4 Task 1: Disabled when form is invalid -->
     <div style="display:flex; gap:0.75rem">
       <button type="submit" class="btn-primary" [disabled]="enrollForm.invalid">Submit</button>
-      <!-- HO-4 Task 2: Reset clears all fields and validation state -->
       <button type="button" (click)="enrollForm.resetForm()" style="background:#eee">Reset</button>
     </div>
 
-    <!-- HO-4 Task 2: Success message after valid submission -->
     <div class="success-msg" *ngIf="submitted">✓ Enrollment request submitted successfully!</div>
   </form>
 </div>

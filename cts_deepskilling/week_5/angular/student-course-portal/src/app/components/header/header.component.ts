@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-// HO-1 Task 2: HeaderComponent with portal nav
 @Component({
   selector: 'app-header',
   standalone: true,

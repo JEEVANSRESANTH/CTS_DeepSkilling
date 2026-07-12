@@ -2,7 +2,6 @@ import { createReducer, on } from '@ngrx/store';
 import { Course } from '../../models/course.model';
 import { loadCourses, loadCoursesSuccess, loadCoursesFailure } from './course.actions';
 
-// HO-9 Task 1: State interface
 export interface CourseState {
   courses: Course[];
   loading: boolean;
@@ -15,7 +14,6 @@ const initialState: CourseState = {
   error: null
 };
 
-// HO-9 Task 1: Pure reducer function - reducers must never mutate state
 export const courseReducer = createReducer(
   initialState,
   on(loadCourses, state => ({ ...state, loading: true, error: null })),

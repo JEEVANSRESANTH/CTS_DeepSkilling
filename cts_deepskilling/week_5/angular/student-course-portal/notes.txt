@@ -1,5 +1,5 @@
-HO-1 Task 1: Angular Project File Purpose Notes
-================================================
+Angular Project File Notes
+===========================
 angular.json         - Workspace configuration: build targets, file paths, budget thresholds, serve config
 tsconfig.json        - Root TypeScript compiler options shared by app and test configs
 tsconfig.app.json    - TypeScript config specific to the application build (extends tsconfig.json)
@@ -12,10 +12,9 @@ src/index.html       - Shell HTML page: contains <app-root> where Angular bootst
 budgets in angular.json:
   maximumWarning - Build warns when bundle size exceeds this threshold
   maximumError   - Build fails when bundle size exceeds this threshold
-  (Important for keeping initial load times fast in production)
 
-HO-8 Setup: Run JSON Server for mock API
+JSON Server for mock API:
   json-server --watch src/assets/db.json --port 3000
 
-HO-9: Redux DevTools
+Redux DevTools:
   Install "Redux DevTools" Chrome extension to inspect NgRx state, actions, and time-travel debug

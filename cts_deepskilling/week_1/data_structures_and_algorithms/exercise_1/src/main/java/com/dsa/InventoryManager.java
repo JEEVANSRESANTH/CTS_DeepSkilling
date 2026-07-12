@@ -1,7 +1,7 @@
 package com.dsa;
 import java.util.HashMap;
 import java.util.Map;
-// Add O(1), Update O(1), Delete O(1) - HashMap is optimal for keyed lookups
+
 public class InventoryManager {
     private final Map<Integer, Product> inventory = new HashMap<>();
 

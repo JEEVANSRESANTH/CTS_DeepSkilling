@@ -4,14 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Linear Search  - O(n) time complexity
- * Binary Search  - O(log n) time complexity (requires sorted array by productId)
- *
- * Best case  : Linear O(1) if target is first | Binary O(1) if target is mid
- * Average    : Linear O(n/2) ~ O(n)          | Binary O(log n)
- * Worst case : Linear O(n)                   | Binary O(log n)
- *
- * Binary search is preferred for large, sorted datasets on e-commerce platforms.
+ * Linear vs Binary search on products.
+ * Linear scans every element, binary splits the sorted array each step.
  */
 public class SearchAlgorithms {
 
